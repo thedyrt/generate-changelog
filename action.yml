@@ -1,0 +1,20 @@
+name: 'Git changelog'
+description: 'Generate a changelog from the git log'
+inputs:
+  base:
+    description: 'Base branch for comparison'
+    required: false
+    default: 'master'
+  head:
+    description: 'Head branch for comparison'
+    required: true
+  log-args:
+    description: 'Additional arguments to pass to git log'
+    required: true
+    default: ''
+outputs:
+  changelog:
+    description: 'The generated changelog'
+runs:
+  using: 'node12'
+  main: 'index.js'
