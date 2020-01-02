@@ -5,6 +5,8 @@ const { execSync } = require('child_process')
 try {
   const baseRef = core.getInput('base');
   const headRef = core.getInput('head');
+  console.log('Fetching all refs');
+  execSync('git fetch --all');
   console.log(`Generating changelog for ${baseRef}..${headRef}`);
   const logArgs = core.getInput('log-args');
   const gitCommand = `git log --no-merges --no-decorate --topo-order --reverse --format='* %s' ${logArgs} ${baseRef}..${headRef}`;
